@@ -1,0 +1,118 @@
+<?php
+
+declare(strict_types=1);
+
+namespace YiiRocks\SvgInline\FontAwesome;
+
+use Yiisoft\Assets\AssetManager;
+use Yiisoft\Html\Html;
+
+/**
+ * SvgInlineFontAwesome provides a quick and easy way to access Font Awesome Icons.
+ */
+final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implements SvgInlineFontAwesomeInterface
+{
+    /** @var string CSS class basename */
+    protected string $prefix;
+
+    /** @var string Default style */
+    protected string $style;
+
+    /** @var bool `true` for fixed-width class */
+    private bool $fixedWidth;
+
+    /** @var string Path to the Font Awesome Icons folder */
+    private string $fontawesomeIconsFolder;
+
+    /** @var FontAwesomeIcon icon properties */
+    private Object $icon;
+
+    /**
+     * Sets the name of the icon.
+     *
+     * @param string $name  name of the icon
+     * @return self component object
+     */
+    public function name(string $name, ?string $style = null): FontAwesomeIcon
+    {
+        $this->icon = new FontAwesomeIcon();
+        $iconFile = implode(DIRECTORY_SEPARATOR, [$this->fontawesomeIconsFolder, $style ?? $this->style, "{$name}.svg"]);
+        $this->icon->setName($iconFile);
+
+        return $this->icon;
+    }
+
+    /**
+     * Register Font Awesome CSS file to asset manager
+     *
+     * @param AssetManager $assetManager
+     * @return void
+     */
+    public function registerAssets(AssetManager $assetManager): void
+    {
+        $assetManager->register([
+            FontawesomeAsset::class,
+        ]);
+    }
+
+    /**
+     * @see $fixedWidth
+     * @param bool $value
+     * @return void
+     */
+    public function setFixedWidth(bool $value): void
+    {
+        $this->fixedWidth = $value;
+    }
+
+    /**
+     * @see $bootstrapIconsFolder
+     * @param string $value
+     * @return void
+     */
+    public function setFontAwesomeIconsFolder(string $value): void
+    {
+        $this->fontawesomeIconsFolder = $this->aliases->get($value);
+    }
+
+    /**
+     * @see $prefix
+     * @param string $value
+     * @return void
+     */
+    public function setPrefix(string $value): void
+    {
+        $this->prefix = $value;
+    }
+
+    /**
+     * @see $style
+     * @param string $value
+     * @return void
+     */
+    public function setStyle(string $value): void
+    {
+        $this->style = $value;
+    }
+
+    /**
+     * Prepares either the size class (default) or the width/height if either of these is given manually.
+     *
+     * @return void
+     */
+    protected function setSvgMeasurement(): void
+    {
+        parent::setSvgMeasurement();
+
+        [$svgWidth, $svgHeight] = $this->getSvgSize();
+
+        $width = $this->icon->get('width');
+        $height = $this->icon->get('height');
+
+        if (!$width && !$height) {
+            Html::addCssClass($this->class, $this->prefix);
+            $widthClass = $this->icon->get('fixedWidth') ? "{$this->prefix}-fw" : "{$this->prefix}-w-" . ceil($svgWidth / $svgHeight * 16);
+            Html::addCssClass($this->class, $widthClass);
+        }
+    }
+}

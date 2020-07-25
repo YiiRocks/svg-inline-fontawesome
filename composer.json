@@ -1,0 +1,75 @@
+{
+    "name": "yiirocks/svg-inline-fontawesome",
+    "description": "Inline Font Awesome Icons for Yii",
+    "type": "yii3-extension",
+    "keywords": ["yii", "yii3", "Font Awesome", "icon", "icons", "svg", "inline"],
+    "homepage": "https://svg-inline.yii.rocks/",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Mr.42",
+            "homepage": "https://mr42.me/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/YiiRocks/svg-inline-fontawesome/issues",
+        "source": "https://github.com/YiiRocks/svg-inline-fontawesome/tree/master"
+    },
+    "require": {
+        "php": ">=7.4.0",
+        "foxy/foxy": "^1.1@dev",
+        "yiirocks/svg-inline": "^1.0.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpmd/phpmd": "@stable",
+        "phpunit/phpunit": "^9.0",
+        "squizlabs/php_codesniffer": "3.*",
+        "yiisoft/di": "^3.0@dev",
+        "yiisoft/files": "^3.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "YiiRocks\\SvgInline\\FontAwesome\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "YiiRocks\\SvgInline\\FontAwesome\\cs\\": "cs",
+            "YiiRocks\\SvgInline\\FontAwesome\\tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "php-cs-fixer": "@php vendor/bin/php-cs-fixer fix",
+        "phpcs": "@php vendor/bin/phpcs",
+        "phpmd": "@php vendor/bin/phpmd src/ text tests/data/phpmd_ruleset.xml",
+        "phpunit": "@php vendor/bin/phpunit --colors=always"
+    },
+    "scripts-descriptions": {
+        "php-cs-fixer": "Cleans to code with PHP Coding Standards Fixer.",
+        "phpcs": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+        "phpmd": "PHP Mess Detector.",
+        "phpunit": "PHPUnit - programmer-oriented testing framework."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        },
+        "config-plugin": {
+            "params": "config/params.php",
+            "web": "config/web.php"
+        },
+        "config-plugin-dev": {
+            "params": [
+                "$params",
+                "config/test.php"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
