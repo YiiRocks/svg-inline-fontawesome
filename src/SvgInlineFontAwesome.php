@@ -22,7 +22,7 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
     private bool $fixedWidth;
 
     /** @var string Path to the Font Awesome Icons folder */
-    private string $fontawesomeIconsFolder;
+    private string $faIconsFolder;
 
     /** @var FontAwesomeIcon icon properties */
     private Object $icon;
@@ -36,7 +36,7 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
     public function name(string $name, ?string $style = null): FontAwesomeIcon
     {
         $this->icon = new FontAwesomeIcon();
-        $iconFile = implode(DIRECTORY_SEPARATOR, [$this->fontawesomeIconsFolder, $style ?? $this->style, "{$name}.svg"]);
+        $iconFile = implode(DIRECTORY_SEPARATOR, [$this->faIconsFolder, $style ?? $this->style, "{$name}.svg"]);
         $this->icon->setName($iconFile);
 
         return $this->icon;
@@ -72,7 +72,7 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
      */
     public function setFontAwesomeIconsFolder(string $value): void
     {
-        $this->fontawesomeIconsFolder = $this->aliases->get($value);
+        $this->faIconsFolder = $this->aliases->get($value);
     }
 
     /**
@@ -111,7 +111,9 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
 
         if (!$width && !$height) {
             Html::addCssClass($this->class, $this->prefix);
-            $widthClass = $this->icon->get('fixedWidth') ? "{$this->prefix}-fw" : "{$this->prefix}-w-" . ceil($svgWidth / $svgHeight * 16);
+            $widthClass = $this->icon->get('fixedWidth')
+                ? "{$this->prefix}-fw"
+                : "{$this->prefix}-w-" . ceil($svgWidth / $svgHeight * 16);
             Html::addCssClass($this->class, $widthClass);
         }
     }
