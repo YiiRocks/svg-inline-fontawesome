@@ -21,7 +21,8 @@
     "require": {
         "php": ">=7.4.0",
         "foxy/foxy": "^1.1@dev",
-        "yiirocks/svg-inline": "^1.0.0"
+        "yiirocks/svg-inline": "^1.0@dev",
+        "yiisoft/html": "^3.0@dev"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
