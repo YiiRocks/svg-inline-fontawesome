@@ -3,7 +3,7 @@
     "description": "Inline Font Awesome Icons for Yii",
     "type": "yii3-extension",
     "keywords": ["yii", "yii3", "Font Awesome", "icon", "icons", "svg", "inline"],
-    "homepage": "https://svg-inline.yii.rocks/",
+    "homepage": "https://www.yii.rocks/svg-inline-fontawesome/",
     "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
