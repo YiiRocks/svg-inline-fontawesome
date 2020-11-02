@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
+use Psr\Log\LoggerInterface;
+use Yiisoft\Log\Logger;
+
+/* @var array $params */
+
 return [
-    'aliases' => [
-        '@root' => dirname(__DIR__, 1),
-        '@assets' => '@root/tests/assets',
-        '@assetsUrl' => '/baseUrl',
-        '@npm' => '@root/node_modules',
-        '@vendor' => '@root/vendor',
-    ],
+    LoggerInterface::class => Logger::class,
 ];

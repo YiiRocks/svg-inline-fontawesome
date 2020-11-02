@@ -27,5 +27,5 @@ class FontawesomeAsset extends \Yiisoft\Assets\AssetBundle
         ],
     ];
 
-    public ?string $sourcePath = '@npm/@fortawesome/fontawesome-free/css';
+    public ?string $sourcePath = '@vendor/npm-asset/fortawesome--fontawesome-free/css';
 }

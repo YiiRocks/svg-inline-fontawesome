@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=7.4.0",
-        "foxy/foxy": "^1.1@dev",
+        "npm-asset/fortawesome--fontawesome-free": "^5.15",
         "yiirocks/svg-inline": "^1.0@dev",
         "yiisoft/html": "^3.0@dev"
     },
@@ -30,7 +30,8 @@
         "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "3.*",
         "yiisoft/di": "^3.0@dev",
-        "yiisoft/files": "^3.0@dev"
+        "yiisoft/files": "^3.0@dev",
+        "yiisoft/log": "^3.0@dev"
     },
     "autoload": {
         "psr-4": {
@@ -43,6 +44,12 @@
             "YiiRocks\\SvgInline\\FontAwesome\\tests\\": "tests"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "scripts": {
         "php-cs-fixer": "@php vendor/bin/php-cs-fixer fix",
         "phpcs": "@php vendor/bin/phpcs",
@@ -64,9 +71,9 @@
             "web": "config/web.php"
         },
         "config-plugin-dev": {
-            "params": [
-                "$params",
-                "config/test.php"
+            "web": [
+                "config/test.php",
+                "$web"
             ]
         }
     },
