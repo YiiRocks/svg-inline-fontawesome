@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace YiiRocks\SvgInline\FontAwesome\tests;
 
 use Psr\Container\ContainerInterface;
-use YiiRocks\SvgInline\SvgInline;
 use YiiRocks\SvgInline\SvgInlineInterface;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;

@@ -18,11 +18,11 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
     /** @var string Default style */
     protected string $style;
 
-    /** @var bool `true` for fixed-width class */
-    private bool $fixedWidth;
-
     /** @var string Path to the Font Awesome Icons folder */
     private string $faIconsFolder;
+
+    /** @var bool `true` for fixed-width class */
+    private bool $fixedWidth;
 
     /** @var FontAwesomeIcon icon properties */
     private Object $icon;
