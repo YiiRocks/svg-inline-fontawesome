@@ -31,7 +31,7 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
      * Sets the name of the icon.
      *
      * @param string $name  name of the icon
-     * @return self component object
+     * @return FontAwesomeIcon component object
      */
     public function name(string $name, ?string $style = null): FontAwesomeIcon
     {
