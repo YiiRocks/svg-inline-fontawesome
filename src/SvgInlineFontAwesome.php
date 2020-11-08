@@ -100,11 +100,9 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
      *
      * @return void
      */
-    protected function setSvgMeasurement(): void
+    protected function setSvgSize(): void
     {
-        parent::setSvgMeasurement();
-
-        [$svgWidth, $svgHeight] = $this->getSvgSize();
+        parent::setSvgSize();
 
         $width = $this->icon->get('width');
         $height = $this->icon->get('height');
@@ -113,7 +111,7 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
             Html::addCssClass($this->class, $this->prefix);
             $widthClass = $this->icon->get('fixedWidth')
                 ? "{$this->prefix}-fw"
-                : "{$this->prefix}-w-" . ceil($svgWidth / $svgHeight * 16);
+                : "{$this->prefix}-w-" . ceil($this->svgWidth / $this->svgHeight * 16);
             Html::addCssClass($this->class, $widthClass);
         }
     }
