@@ -22,6 +22,16 @@ The package could be installed via composer:
 composer require yiirocks/svg-inline-fontawesome
 ```
 
+## Usage
+
+The default configuration will enable `$svg` in any view.
+
+```php
+echo $svg->fai('cookie');
+```
+
+Available options can be found in the [documentation](https://www.yii.rocks/svg-inline/fontawesome/).
+
 ## Unit testing
 
 The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
