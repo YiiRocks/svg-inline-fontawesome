@@ -7,7 +7,6 @@ namespace YiiRocks\SvgInline\FontAwesome\tests;
 use Psr\Container\ContainerInterface;
 use YiiRocks\SvgInline\SvgInlineInterface;
 use Yiisoft\Aliases\Aliases;
-use Yiisoft\Assets\AssetManager;
 use Yiisoft\Composer\Config\Builder;
 use Yiisoft\Di\Container;
 use Yiisoft\Files\FileHelper;
@@ -18,11 +17,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      * @var Aliases $aliases
      */
     protected $aliases;
-
-    /**
-     * @var AssetManager $assetManager
-     */
-    protected $assetManager;
 
     /**
      * @var SvgInlineInterface $svgInline
@@ -49,7 +43,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     protected function tearDown(): void
     {
-        $this->container = null;
         $this->removeAssets('@assets');
         parent::tearDown();
     }
