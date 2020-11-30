@@ -2,7 +2,16 @@
     "name": "yiirocks/svg-inline-fontawesome",
     "description": "Inline Font Awesome Icons for Yii",
     "type": "yii3-extension",
-    "keywords": ["yii", "yii3", "Font Awesome", "icon", "icons", "svg", "inline"],
+    "keywords": [
+        "yii",
+        "yii3",
+        "extension",
+        "Font Awesome",
+        "icon",
+        "icons",
+        "svg",
+        "inline"
+    ],
     "homepage": "https://www.yii.rocks/svg-inline-fontawesome/",
     "license": "MIT",
     "minimum-stability": "dev",
@@ -33,7 +42,6 @@
         "squizlabs/php_codesniffer": "^3.5",
         "vimeo/psalm": "^4.1",
         "yiisoft/di": "^3.0",
-        "yiisoft/files": "^3.0",
         "yiisoft/log": "^3.0"
     },
     "autoload": {
