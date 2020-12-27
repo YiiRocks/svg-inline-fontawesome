@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace YiiRocks\SvgInline\FontAwesome;
 
+use Psr\Container\ContainerInterface;
+use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Html\Html;
 
@@ -25,7 +27,33 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
     private bool $fixedWidth;
 
     /** @var FontAwesomeIcon icon properties */
-    private Object $icon;
+    private FontAwesomeIcon $icon;
+
+    /**
+     * Construct
+     *
+     * @param Aliases $aliases
+     * @param AssetManager $assetManager
+     * @param ContainerInterface $container
+     * @param FontAwesomeIcon $icon
+     * @param bool $registerAssets
+     */
+    public function __construct(
+        Aliases $aliases,
+        AssetManager $assetManager,
+        ContainerInterface $container,
+        FontAwesomeIcon $icon,
+        bool $registerAssets
+    ) {
+        parent::__construct($aliases, $container);
+        $this->icon = $icon;
+
+        if ($registerAssets) {
+            $assetManager->register([
+                FontawesomeAsset::class,
+            ]);
+        }
+    }
 
     /**
      * Sets the name of the icon.
@@ -40,19 +68,6 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
         $this->icon->setName($iconFile);
 
         return $this->icon;
-    }
-
-    /**
-     * Register Font Awesome CSS file to asset manager
-     *
-     * @param AssetManager $assetManager
-     * @return void
-     */
-    public function registerAssets(AssetManager $assetManager): void
-    {
-        $assetManager->register([
-            FontawesomeAsset::class,
-        ]);
     }
 
     /**
