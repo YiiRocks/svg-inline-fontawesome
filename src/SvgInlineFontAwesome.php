@@ -42,11 +42,9 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
         Aliases $aliases,
         AssetManager $assetManager,
         ContainerInterface $container,
-        FontAwesomeIcon $icon,
         bool $registerAssets
     ) {
         parent::__construct($aliases, $container);
-        $this->icon = $icon;
 
         if ($registerAssets) {
             $assetManager->register([

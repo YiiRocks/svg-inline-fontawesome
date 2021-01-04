@@ -48,4 +48,12 @@ class SvgInlineFontAwesomeTest extends TestCase
     {
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->width(42));
     }
+
+    public function testReset(): void
+    {
+        $firstRun = (string) $this->svgInline->fai('cookie')->class('yourClass');
+        $secondRun = (string) $this->svgInline->fai('cookie');
+
+        $this->assertNotEquals($firstRun, $secondRun);
+    }
 }
