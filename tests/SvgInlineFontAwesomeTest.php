@@ -51,8 +51,8 @@ class SvgInlineFontAwesomeTest extends TestCase
 
     public function testReset(): void
     {
-        $firstRun = (string) $this->svgInline->fai('cookie')->class('yourClass');
-        $secondRun = (string) $this->svgInline->fai('cookie');
+        $firstRun = $this->svgInline->fai('cookie')->class('yourClass')->render();
+        $secondRun = $this->svgInline->fai('cookie')->render();
 
         $this->assertNotEquals($firstRun, $secondRun);
     }

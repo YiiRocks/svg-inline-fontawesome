@@ -44,7 +44,7 @@
         "vimeo/psalm": "^4.1",
         "yiisoft/composer-config-plugin": "^1.0",
         "yiisoft/di": "^3.0",
-        "yiisoft/log": "^3.0"
+        "yiisoft/log": "^1.0"
     },
     "autoload": {
         "psr-4": {
