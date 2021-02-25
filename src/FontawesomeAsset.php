@@ -17,10 +17,12 @@ class FontawesomeAsset extends \Yiisoft\Assets\AssetBundle
 
     public ?string $baseUrl = '@assetsUrl';
 
+    /** @var array */
     public array $css = [
         'svg-with-js.min.css',
     ];
 
+    /** @var array */
     public array $publishOptions = [
         'only' => [
             'svg-with-js.min.css',
