@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesome;
 use YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesomeInterface;
 
 /* @var array $params */

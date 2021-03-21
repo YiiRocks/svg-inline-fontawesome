@@ -33,7 +33,8 @@
         "yiirocks/svg-inline": "^1.0",
         "yiisoft/aliases": "^1.1",
         "yiisoft/assets": "^1.0",
-        "yiisoft/html": "^1.0"
+        "yiisoft/html": "^1.0",
+        "yiisoft/log": "^1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -81,7 +82,12 @@
         "config-plugin": {
             "params": "config/params.php",
             "common": "config/common.php",
-            "web": "config/web.php"
+            "web": "config/web.php",
+            "test": [
+                "$common",
+                "$web",
+                "config/test.php"
+            ]
         }
     },
     "config": {
