@@ -79,14 +79,17 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         },
+        "config-plugin-options": {
+            "source-directory": "config"
+        },
         "config-plugin": {
-            "params": "config/params.php",
-            "common": "config/common.php",
-            "web": "config/web.php",
+            "params": "params.php",
+            "common": "common.php",
+            "web": "web.php",
             "test": [
                 "$common",
                 "$web",
-                "config/test.php"
+                "test.php"
             ]
         }
     },
