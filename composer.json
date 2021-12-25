@@ -31,7 +31,7 @@
         "php": ">=7.4.0",
         "npm-asset/fortawesome--fontawesome-free": "^5.15",
         "yiirocks/svg-inline": "^1.0",
-        "yiisoft/aliases": "^1.1",
+        "yiisoft/aliases": "^2.0",
         "yiisoft/assets": "^2.0",
         "yiisoft/html": "^2.2",
         "yiisoft/log": "^1.0"
