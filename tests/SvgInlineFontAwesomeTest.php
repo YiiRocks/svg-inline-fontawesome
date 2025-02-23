@@ -7,7 +7,7 @@ class SvgInlineFontAwesomeTest extends TestCase
     public function testBasic(): void
     {
         $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-16"', $this->svgInline->fai('cookie'));
-        $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-16"', $this->svgInline->fai('nonexistent'));
+        $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-10"', $this->svgInline->fai('nonexistent'));
     }
 
     public function testClass(): void
@@ -39,6 +39,14 @@ class SvgInlineFontAwesomeTest extends TestCase
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->height(42));
     }
 
+    public function testReset(): void
+    {
+        $firstRun = $this->svgInline->fai('cookie')->class('yourClass')->render();
+        $secondRun = $this->svgInline->fai('cookie')->render();
+
+        $this->assertNotEquals($firstRun, $secondRun);
+    }
+
     public function testTitle(): void
     {
         $this->assertStringContainsString('<title>Demo Title</title>', $this->svgInline->fai('cookie')->title('Demo Title'));
@@ -47,13 +55,5 @@ class SvgInlineFontAwesomeTest extends TestCase
     public function testWidth(): void
     {
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->width(42));
-    }
-
-    public function testReset(): void
-    {
-        $firstRun = $this->svgInline->fai('cookie')->class('yourClass')->render();
-        $secondRun = $this->svgInline->fai('cookie')->render();
-
-        $this->assertNotEquals($firstRun, $secondRun);
     }
 }

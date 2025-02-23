@@ -1,7 +1,7 @@
 {
     "name": "yiirocks/svg-inline-fontawesome",
     "description": "Inline Font Awesome Icons for Yii",
-    "type": "yii3-extension",
+    "type": "library",
     "keywords": [
         "yii",
         "yii3",
@@ -28,23 +28,23 @@
         "source": "https://github.com/YiiRocks/svg-inline-fontawesome/tree/master"
     },
     "require": {
-        "php": ">=7.4.0",
-        "npm-asset/fortawesome--fontawesome-free": "^5.15",
+        "php": ">=8.1",
+        "fortawesome/font-awesome": "^6.7",
         "yiirocks/svg-inline": "^1.0",
-        "yiisoft/aliases": "^2.0",
-        "yiisoft/assets": "^2.0",
-        "yiisoft/html": "^2.2",
-        "yiisoft/log": "^1.0"
+        "yiisoft/aliases": "^3.0",
+        "yiisoft/assets": "^5.1",
+        "yiisoft/html": "^3.9"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "httpsoft/http-message": "^1.0",
+        "friendsofphp/php-cs-fixer": "^3.70",
+        "httpsoft/http-message": "^1.1",
         "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "^9.0",
-        "squizlabs/php_codesniffer": "^3.5",
-        "vimeo/psalm": "^4.1",
-        "yiisoft/config": "^1.0",
-        "yiisoft/di": "^3.0"
+        "phpunit/phpunit": "^10.5",
+        "squizlabs/php_codesniffer": "^3.11",
+        "yiisoft/config": "^1.6",
+        "yiisoft/di": "*",
+        "yiisoft/files": "^2.0",
+        "yiisoft/yii-http": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -83,17 +83,14 @@
             "source-directory": "config"
         },
         "config-plugin": {
-            "params": "params.php",
-            "common": "common.php",
-            "web": "web.php",
-            "test": [
-                "$common",
-                "$web",
-                "test.php"
-            ]
+            "di-web": "di-web.php",
+            "params": "params.php"
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/config": true
+        }
     }
 }

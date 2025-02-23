@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 return [
     'yiirocks/svg-inline-fontawesome' => [
-        'fallbackIcon' => '@vendor/npm-asset/fortawesome--fontawesome-free/svgs/solid/question-circle.svg',
+        'fallbackIcon' => '@vendor/fortawesome/font-awesome/svgs/solid/question.svg',
         'fill' => 'currentColor',
         'fixedWidth' => false,
-        'fontAwesomeFolder' => '@vendor/npm-asset/fortawesome--fontawesome-free/svgs',
+        'fontAwesomeFolder' => '@vendor/fortawesome/font-awesome/svgs',
         'prefix' => 'svg-inline--fa',
         'registerAssets' => true,
         'style' => 'solid',
