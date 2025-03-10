@@ -29,7 +29,7 @@
     },
     "require": {
         "php": ">=8.1",
-        "npm-asset/fortawesome--fontawesome-free": "^5.15",
+        "fortawesome/font-awesome": "^6.7",
         "yiirocks/svg-inline": "^1.0",
         "yiisoft/aliases": "^3.0",
         "yiisoft/assets": "^5.1",

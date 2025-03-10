@@ -7,7 +7,7 @@ class SvgInlineFontAwesomeTest extends TestCase
     public function testBasic(): void
     {
         $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-16"', $this->svgInline->fai('cookie'));
-        $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-16"', $this->svgInline->fai('nonexistent'));
+        $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-10"', $this->svgInline->fai('nonexistent'));
     }
 
     public function testClass(): void
