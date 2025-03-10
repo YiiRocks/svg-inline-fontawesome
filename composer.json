@@ -28,7 +28,7 @@
         "source": "https://github.com/YiiRocks/svg-inline-fontawesome/tree/master"
     },
     "require": {
-        "php": ">=7.4.0",
+        "php": ">=8.1",
         "npm-asset/fortawesome--fontawesome-free": "^5.15",
         "yiirocks/svg-inline": "^1.0",
         "yiisoft/aliases": "^3.0",
@@ -44,7 +44,9 @@
         "vimeo/psalm": "^6.8",
         "yiisoft/config": "^1.6",
         "yiisoft/di": "*",
-        "yiisoft/files": "^2.0"
+        "yiisoft/files": "^2.0",
+        "yiisoft/log": "^2.1",
+        "yiisoft/yii-http": "^1.0"
     },
     "autoload": {
         "psr-4": {

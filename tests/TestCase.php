@@ -5,13 +5,17 @@ declare(strict_types=1);
 namespace YiiRocks\SvgInline\FontAwesome\tests;
 
 use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 use YiiRocks\SvgInline\SvgInlineInterface;
 use Yiisoft\Aliases\Aliases;
+use Yiisoft\Assets\AssetLoaderInterface;
 use Yiisoft\Config\Config;
 use Yiisoft\Config\ConfigPaths;
+use Yiisoft\Config\Modifier\RecursiveMerge;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\ContainerConfig;
 use Yiisoft\Files\FileHelper;
+use Yiisoft\Log\Logger;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
@@ -35,9 +39,17 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         parent::setUp();
         $config = new Config(
             new ConfigPaths(dirname(__DIR__), 'config'),
+            '/',
+            [RecursiveMerge::groups('params')]
         );
         $containerConfig = ContainerConfig::create()
-            ->withDefinitions($config->get('di-web'));
+            ->withDefinitions(
+                $config->get('di')
+                +
+                $config->get('di-web')
+                +
+                [LoggerInterface::class => Logger::class]
+        );
         $this->container = new Container($containerConfig);
         $this->aliases = $this->container->get(Aliases::class);
         $this->aliases->set('@root', dirname(__DIR__));
@@ -45,7 +57,10 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $this->aliases->set('@assetsUrl', '/baseUrl');
         $this->aliases->set('@vendor', '@root/vendor');
         $this->aliases->set('@npm', '@vendor/npm-asset');
+        $this->assetManager = $this->container->get(AssetLoaderInterface::class);
         $this->svgInline = $this->container->get(SvgInlineInterface::class);
+        
+        $this->assertInstanceOf(SvgInlineInterface::class, $this->svgInline);
     }
 
     protected function tearDown(): void

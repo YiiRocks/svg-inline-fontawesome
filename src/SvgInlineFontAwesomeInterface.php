@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace YiiRocks\SvgInline\FontAwesome;
 
-interface SvgInlineFontAwesomeInterface
+use YiiRocks\SvgInline\SvgInlineInterface;
+
+interface SvgInlineFontAwesomeInterface extends SvgInlineInterface
 {
 }
