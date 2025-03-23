@@ -123,10 +123,9 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
 
         if (!$width && !$height) {
             Html::addCssClass($this->class, $this->prefix);
-            $widthClass = $this->icon->get('fixedWidth')
-                ? "{$this->prefix}-fw"
-                : "{$this->prefix}-w-" . ceil($this->svgWidth / $this->svgHeight * 16);
-            Html::addCssClass($this->class, $widthClass);
+            if ($this->icon->get('fixedWidth')) {
+                Html::addCssClass($this->class, "{$this->prefix}-fw");
+            }
         }
     }
 }

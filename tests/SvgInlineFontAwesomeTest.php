@@ -6,13 +6,13 @@ class SvgInlineFontAwesomeTest extends TestCase
 {
     public function testBasic(): void
     {
-        $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-16"', $this->svgInline->fai('cookie'));
-        $this->assertStringContainsString('role="img" class="svg-inline--fa svg-inline--fa-w-10"', $this->svgInline->fai('nonexistent'));
+        $this->assertStringContainsString('role="img" class="svg-inline--fa"', $this->svgInline->fai('cookie'));
+        $this->assertStringContainsString('role="img" class="svg-inline--fa"', $this->svgInline->fai('nonexistent'));
     }
 
     public function testClass(): void
     {
-        $this->assertStringContainsString('class="yourClass svg-inline--fa svg-inline--fa-w-16"', $this->svgInline->fai('cookie')->class('yourClass'));
+        $this->assertStringContainsString('class="yourClass svg-inline--fa"', $this->svgInline->fai('cookie')->class('yourClass'));
     }
 
     public function testCss(): void
@@ -30,12 +30,13 @@ class SvgInlineFontAwesomeTest extends TestCase
     public function testFixedWidth(): void
     {
         $this->assertStringNotContainsString('svg-inline--fa-fw', $this->svgInline->fai('cookie'));
-        $this->assertStringNotContainsString('svg-inline--fa-w-16', $this->svgInline->fai('cookie')->fixedWidth(true));
         $this->assertStringContainsString('class="svg-inline--fa svg-inline--fa-fw"', $this->svgInline->fai('cookie')->fixedWidth(true));
     }
 
     public function testHeight(): void
     {
+        $this->assertStringNotContainsString('svg-inline--fa"', $this->svgInline->fai('cookie')->height(42));
+        $this->assertStringNotContainsString('svg-inline--fa-fw"', $this->svgInline->fai('cookie')->height(42));
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->height(42));
     }
 
@@ -54,6 +55,8 @@ class SvgInlineFontAwesomeTest extends TestCase
 
     public function testWidth(): void
     {
+        $this->assertStringNotContainsString('svg-inline--fa"', $this->svgInline->fai('cookie')->width(42));
+        $this->assertStringNotContainsString('svg-inline--fa-fw"', $this->svgInline->fai('cookie')->width(42));
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->width(42));
     }
 }
