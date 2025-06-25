@@ -40,7 +40,7 @@ The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
 ./vendor/bin/phpunit
 ```
 
-[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/YiiRocks/svg-inline-fontawesome.svg)](https://codeclimate.com/github/YiiRocks/svg-inline-fontawesome/maintainability)
+[![Maintainability](https://qlty.sh/badges/a1116206-e5ca-498d-8cbb-8ba8b4ce9191/maintainability.svg)](https://qlty.sh/gh/YiiRocks/projects/svg-inline-fontawesome)
 [![Codacy branch grade](https://img.shields.io/codacy/grade/41c0fc9e1e244d1292f7ba51b6ed1065/master.svg)](https://app.codacy.com/gh/YiiRocks/svg-inline-fontawesome)
 [![Scrutinizer code quality (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/quality/g/yiirocks/svg-inline-fontawesome/master.svg)](https://scrutinizer-ci.com/g/yiirocks/svg-inline-fontawesome/?branch=master)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/YiiRocks/svg-inline-fontawesome/analysis.yml?branch=master)
