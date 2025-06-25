@@ -10,6 +10,7 @@ namespace YiiRocks\SvgInline\FontAwesome;
 final class FontAwesomeIcon extends \YiiRocks\SvgInline\Icon
 {
     /** @var bool Set to `true` to have a fixed width icon */
+    /** @psalm-suppress PropertyNotSetInConstructor */
     protected bool $fixedWidth;
 
     public function setFixedWidth(bool $value): void

@@ -25,6 +25,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected $aliases;
 
     /**
+     * @var AssetLoaderInterface $assetManager
+     */
+    protected $assetManager;
+
+    /**
      * @var SvgInlineInterface $svgInline
      */
     protected $svgInline;
