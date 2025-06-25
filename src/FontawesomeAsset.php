@@ -6,13 +6,14 @@ namespace YiiRocks\SvgInline\FontAwesome;
 
 use Yiisoft\Assets\AssetBundle;
 use Yiisoft\Assets\AssetManager;
+
 /**
  * Asset bundle for the Font Awesome css files.
  *
  * FontawesomeAsset.
  *
  * @package svg-inline-fontawesome
- * 
+ *
  * @psalm-import-type CssFile from AssetManager
  */
 final class FontawesomeAsset extends AssetBundle

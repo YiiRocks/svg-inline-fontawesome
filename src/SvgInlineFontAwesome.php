@@ -15,14 +15,14 @@ use Yiisoft\Html\Html;
 final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implements SvgInlineFontAwesomeInterface
 {
     /** @var string CSS class basename */
-	/** @psalm-suppress PropertyNotSetInConstructor */
+    /** @psalm-suppress PropertyNotSetInConstructor */
     protected string $prefix;
 
     /** @var string Default style */
     protected ?string $style = null;
 
     /** @var string Path to the Font Awesome Icons folder */
-	/** @psalm-suppress PropertyNotSetInConstructor */
+    /** @psalm-suppress PropertyNotSetInConstructor */
     private string $faIconsFolder;
 
     /** @var bool `true` for fixed-width class */
