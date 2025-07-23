@@ -23,7 +23,7 @@ class SvgInlineFontAwesomeTest extends TestCase
     public function testFill(): void
     {
         $this->assertStringContainsString('fill="currentColor"', $this->svgInline->fai('cookie'));
-        $this->assertStringNotContainsString('fill="currentColor"', $this->svgInline->fai('cookie')->fill(''));
+        $this->assertStringNotContainsString('class="svg-inline--fa" fill="currentColor">', $this->svgInline->fai('cookie')->fill(''));
         $this->assertStringContainsString('fill="#003865"', $this->svgInline->fai('cookie')->fill('#003865'));
     }
 
