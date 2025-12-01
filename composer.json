@@ -27,7 +27,7 @@
         "source": "https://github.com/YiiRocks/svg-inline-fontawesome/tree/master"
     },
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "fortawesome/font-awesome": "^6.7|^7.0",
         "yiirocks/svg-inline": "^1.0",
         "yiisoft/aliases": "^3.0",
