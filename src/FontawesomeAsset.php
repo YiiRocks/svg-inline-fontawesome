@@ -23,7 +23,7 @@ final class FontawesomeAsset extends AssetBundle
     public ?string $baseUrl = '@assetsUrl';
 
     /** @var array */
-    /** @psalm-var array<array-key, CssFile|string> */
+    /** @psalm-var array<array-key, mixed> */
     public array $css = [
         'svg-with-js.min.css',
     ];
