@@ -59,4 +59,18 @@ class SvgInlineFontAwesomeTest extends TestCase
         $this->assertStringNotContainsString('svg-inline--fa-fw"', $this->svgInline->fai('cookie')->width(42));
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->width(42));
     }
+
+    public function testFontAwesomeIconDirectInstantiation(): void
+    {
+        $icon = new \YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon();
+        $icon->setName('test');
+        $this->assertSame('test', $icon->get('name'));
+    }
+
+    public function testFontAwesomeIconFixedWidthSetter(): void
+    {
+        $icon = new \YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon();
+        $icon->setFixedWidth(true);
+        $this->assertTrue($icon->get('fixedWidth'));
+    }
 }
