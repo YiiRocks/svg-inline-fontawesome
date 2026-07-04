@@ -40,6 +40,18 @@ class SvgInlineFontAwesomeTest extends TestCase
         $this->assertStringContainsString('width="42" height="42"', $this->svgInline->fai('cookie')->height(42));
     }
 
+    public function testExplicitStyleOverridesDefaultStyle(): void
+    {
+        // "galactic-republic" only exists under the "brands" style, not the configured default
+        // ("solid"), so if the explicit style argument were ignored, this would fall back to the
+        // fallback icon instead, which has a different viewBox. The <title> alone can't tell these
+        // apart, since it is derived from the requested icon name regardless of which file loaded.
+        $this->assertStringContainsString(
+            'viewBox="0 0 512 512"',
+            $this->svgInline->fai('galactic-republic', 'brands')
+        );
+    }
+
     public function testReset(): void
     {
         $firstRun = $this->svgInline->fai('cookie')->class('yourClass')->render();
@@ -72,5 +84,57 @@ class SvgInlineFontAwesomeTest extends TestCase
         $icon = new \YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon();
         $icon->setFixedWidth(true);
         $this->assertTrue($icon->get('fixedWidth'));
+    }
+
+    public function testNameIsPubliclyAccessible(): void
+    {
+        /** @var \YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesome $fai */
+        $fai = $this->container->get(\YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesomeInterface::class);
+        $icon = $fai->name('cookie');
+        $this->assertInstanceOf(\YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon::class, $icon);
+    }
+
+    public function testRegisterAssetsDefaultsToFalse(): void
+    {
+        $assetManager = $this->container->get(\Yiisoft\Assets\AssetManager::class);
+        new \YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesome(
+            $this->aliases,
+            $assetManager,
+            $this->container,
+            new \YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon()
+        );
+        $this->assertFalse(
+            $assetManager->isRegisteredBundle(\YiiRocks\SvgInline\FontAwesome\FontawesomeAsset::class)
+        );
+    }
+
+    public function testRegisterAssetsFalseDoesNotRegisterFontawesomeAsset(): void
+    {
+        $assetManager = $this->container->get(\Yiisoft\Assets\AssetManager::class);
+        new \YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesome(
+            $this->aliases,
+            $assetManager,
+            $this->container,
+            new \YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon(),
+            false
+        );
+        $this->assertFalse(
+            $assetManager->isRegisteredBundle(\YiiRocks\SvgInline\FontAwesome\FontawesomeAsset::class)
+        );
+    }
+
+    public function testRegisterAssetsTrueRegistersFontawesomeAsset(): void
+    {
+        $assetManager = $this->container->get(\Yiisoft\Assets\AssetManager::class);
+        new \YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesome(
+            $this->aliases,
+            $assetManager,
+            $this->container,
+            new \YiiRocks\SvgInline\FontAwesome\FontAwesomeIcon(),
+            true
+        );
+        $this->assertTrue(
+            $assetManager->isRegisteredBundle(\YiiRocks\SvgInline\FontAwesome\FontawesomeAsset::class)
+        );
     }
 }
