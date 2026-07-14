@@ -43,16 +43,10 @@ Available options can be found in the [documentation](https://www.yii.rocks/svg-
 ## Unit testing
 
 The package is tested with [Psalm](https://psalm.dev/), [PHPUnit](https://phpunit.de/), and
-[Infection](https://infection.github.io/) for mutation testing. Code style is checked with
-[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) and [PHPMD](https://phpmd.org/). To run tests:
+[Infection](https://infection.github.io/) for mutation testing. To run tests:
 
 ```bash
 composer psalm
 composer phpunit
 composer infection
-composer phpcs
-composer phpmd
 ```
-
-[![Maintainability](https://qlty.sh/badges/a1116206-e5ca-498d-8cbb-8ba8b4ce9191/maintainability.svg)](https://qlty.sh/gh/YiiRocks/projects/svg-inline-fontawesome)
-[![Codacy branch grade](https://img.shields.io/codacy/grade/41c0fc9e1e244d1292f7ba51b6ed1065/master.svg)](https://app.codacy.com/gh/YiiRocks/svg-inline-fontawesome)

@@ -19,25 +19,10 @@ use Yiisoft\Files\FileHelper;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var Aliases $aliases
-     */
-    protected $aliases;
-
-    /**
-     * @var AssetLoaderInterface $assetManager
-     */
-    protected $assetManager;
-
-    /**
-     * @var SvgInlineInterface $svgInline
-     */
-    protected $svgInline;
-
-    /**
-     * @var ContainerInterface $container
-     */
-    protected $container;
+    protected Aliases $aliases;
+    protected AssetLoaderInterface $assetManager;
+    protected SvgInlineInterface $svgInline;
+    protected ContainerInterface $container;
 
     protected function setUp(): void
     {
@@ -74,7 +59,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     protected function removeAssets(string $basePath): void
     {
-        $handle = opendir($dir = $this->aliases->get($basePath));
+        $dir = $this->aliases->get($basePath);
+        if (!is_dir($dir)) {
+            return;
+        }
+        $handle = opendir($dir);
         if ($handle === false) {
             throw new \Exception("Unable to open directory: $dir");
         }

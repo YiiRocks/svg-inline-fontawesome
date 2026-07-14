@@ -1,12 +1,11 @@
-/.codacy.yml        export-ignore
-/.codeclimate.yml   export-ignore
+* text=auto eol=lf
+
 /.editorconfig      export-ignore
 /.gitattributes     export-ignore
 /.github            export-ignore
 /.gitignore         export-ignore
 /.php-cs-fixer.php  export-ignore
 /infection.json     export-ignore
-/phpcs.xml.dist     export-ignore
 /phpunit.xml.dist   export-ignore
 /psalm.xml          export-ignore
 /tests              export-ignore
