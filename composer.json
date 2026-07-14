@@ -13,7 +13,7 @@
         "inline"
     ],
     "homepage": "https://www.yii.rocks/svg-inline-fontawesome/",
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "minimum-stability": "dev",
     "authors": [
         {
@@ -98,5 +98,11 @@
             "infection/extension-installer": true,
             "yiisoft/config": true
         }
-    }
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/YiiRocks"
+        }
+    ]
 }
