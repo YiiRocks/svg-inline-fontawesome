@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace YiiRocks\SvgInline\FontAwesome;
 
+use YiiRocks\SvgInline\Icon;
+
 /**
  * Icon class to store all icon properties.
  */
-final class FontAwesomeIcon extends \YiiRocks\SvgInline\Icon
+final class FontAwesomeIcon extends Icon
 {
     /** @var bool Set to `true` to have a fixed width icon */
     /** @psalm-suppress PropertyNotSetInConstructor */

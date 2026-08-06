@@ -9,6 +9,12 @@ use Yiisoft\Assets\AssetBundle;
 
 final class AssetTest extends TestCase
 {
+    public function testAssetCssContainsSvgWithJs(): void
+    {
+        $asset = new FontawesomeAsset();
+        $this->assertStringContainsString('svg-with-js.min.css', $asset->css[0]);
+    }
+
     public function testAssetExtendsAssetBundle(): void
     {
         $asset = new FontawesomeAsset();
@@ -19,12 +25,6 @@ final class AssetTest extends TestCase
     {
         $asset = new FontawesomeAsset();
         $this->assertNotEmpty($asset->css);
-    }
-
-    public function testAssetCssContainsSvgWithJs(): void
-    {
-        $asset = new FontawesomeAsset();
-        $this->assertStringContainsString('svg-with-js.min.css', $asset->css[0]);
     }
 
     public function testAssetResolvesFromContainer(): void

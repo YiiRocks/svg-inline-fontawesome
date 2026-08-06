@@ -11,7 +11,7 @@ return [
     SvgInlineFontAwesomeInterface::class => [
         'class' => SvgInlineFontAwesome::class,
         '__construct()' => [
-            'registerAssets' => $params['yiirocks/svg-inline-fontawesome']['registerAssets']
+            'registerAssets' => $params['yiirocks/svg-inline-fontawesome']['registerAssets'],
         ],
         'setFallbackIcon()' => [$params['yiirocks/svg-inline-fontawesome']['fallbackIcon']],
         'setFill()' => [$params['yiirocks/svg-inline-fontawesome']['fill']],

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace YiiRocks\SvgInline\FontAwesome\tests;
 
+use Exception;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -21,8 +22,8 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
     protected Aliases $aliases;
     protected AssetLoaderInterface $assetManager;
-    protected SvgInlineInterface $svgInline;
     protected ContainerInterface $container;
+    protected SvgInlineInterface $svgInline;
 
     protected function setUp(): void
     {
@@ -30,13 +31,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $config = new Config(
             new ConfigPaths(dirname(__DIR__), 'config'),
             '/',
-            [RecursiveMerge::groups('params')]
+            [RecursiveMerge::groups('params')],
         );
         $containerConfig = ContainerConfig::create()
             ->withDefinitions(
                 $config->get('di')
-                +
-                [LoggerInterface::class => NullLogger::class]
+                + [LoggerInterface::class => NullLogger::class],
             );
         $this->container = new Container($containerConfig);
         $this->aliases = $this->container->get(Aliases::class);
@@ -47,7 +47,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $this->aliases->set('@npm', '@vendor/npm-asset');
         $this->assetManager = $this->container->get(AssetLoaderInterface::class);
         $this->svgInline = $this->container->get(SvgInlineInterface::class);
-        
+
         $this->assertInstanceOf(SvgInlineInterface::class, $this->svgInline);
     }
 
@@ -65,7 +65,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         }
         $handle = opendir($dir);
         if ($handle === false) {
-            throw new \Exception("Unable to open directory: $dir");
+            throw new Exception("Unable to open directory: $dir");
         }
         while (($file = readdir($handle)) !== false) {
             if ($file === '.' || $file === '..' || $file === '.gitignore') {

@@ -12,8 +12,8 @@ This extension provides simple functions for [Yii framework 3.0](http://www.yiif
 [![Packagist Version](https://img.shields.io/packagist/v/yiirocks/svg-inline-fontawesome.svg)](https://packagist.org/packages/yiirocks/svg-inline-fontawesome)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/yiirocks/svg-inline-fontawesome.svg)](https://php.net/)
 [![Packagist](https://img.shields.io/packagist/dt/yiirocks/svg-inline-fontawesome.svg)](https://packagist.org/packages/yiirocks/svg-inline-fontawesome)
-[![GitHub](https://img.shields.io/github/license/yiirocks/svg-inline-fontawesome.svg)](https://github.com/yiirocks/svg-inline-fontawesome/blob/master/LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/yiirocks/svg-inline-fontawesome/build.yml?branch=master)](https://github.com/yiirocks/svg-inline-fontawesome/actions)
+[![GitHub](https://img.shields.io/github/license/yiirocks/svg-inline-fontawesome.svg)](https://github.com/yiirocks/svg-inline-fontawesome/blob/main/LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/yiirocks/svg-inline-fontawesome/build.yml?branch=main)](https://github.com/yiirocks/svg-inline-fontawesome/actions)
 
 Stats for Nerds
 

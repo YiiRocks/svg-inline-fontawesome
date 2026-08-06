@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace YiiRocks\SvgInline\FontAwesome;
 
+use Override;
 use Psr\Container\ContainerInterface;
+use YiiRocks\SvgInline\SvgInline;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Html\Html;
@@ -12,7 +14,7 @@ use Yiisoft\Html\Html;
 /**
  * SvgInlineFontAwesome provides a quick and easy way to access Font Awesome Icons.
  */
-final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implements SvgInlineFontAwesomeInterface
+final class SvgInlineFontAwesome extends SvgInline implements SvgInlineFontAwesomeInterface
 {
     /** @var string CSS class basename */
     /** @psalm-suppress PropertyNotSetInConstructor */
@@ -29,9 +31,6 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
     /** @psalm-suppress PropertyNotSetInConstructor */
     private bool $fixedWidth;
 
-    /** @var FontAwesomeIcon icon properties */
-    private ?FontAwesomeIcon $icon = null;
-
     /**
      * Construct
      *
@@ -46,7 +45,7 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
         AssetManager $assetManager,
         ContainerInterface $container,
         FontAwesomeIcon $icon,
-        bool $registerAssets = false
+        bool $registerAssets = false,
     ) {
         parent::__construct($aliases, $container, $icon);
 
@@ -63,13 +62,15 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
      * @param string $name  name of the icon
      * @return FontAwesomeIcon component object
      */
+    #[Override]
     public function name(string $name, ?string $style = null): FontAwesomeIcon
     {
-        $this->icon = new FontAwesomeIcon();
+        $icon = new FontAwesomeIcon();
         $iconFile = implode(DIRECTORY_SEPARATOR, [$this->faIconsFolder, $style ?? $this->style, "{$name}.svg"]);
-        $this->icon->setName($iconFile);
+        $icon->setName($iconFile);
+        $this->icon = $icon;
 
-        return $this->icon;
+        return $icon;
     }
 
     /**
@@ -117,12 +118,11 @@ final class SvgInlineFontAwesome extends \YiiRocks\SvgInline\SvgInline implement
      *
      * @return void
      */
-    #[\Override]
+    #[Override]
     protected function setSvgSize(): void
     {
         parent::setSvgSize();
 
-        /** @psalm-var FontAwesomeIcon $this->icon */
         $width = $this->icon->get('width');
         $height = $this->icon->get('height');
 

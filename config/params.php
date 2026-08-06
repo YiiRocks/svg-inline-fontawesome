@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use YiiRocks\SvgInline\FontAwesome\SvgInlineFontAwesomeInterface;
+
 return [
     'yiirocks/svg-inline-fontawesome' => [
         'fallbackIcon' => '@vendor/fortawesome/font-awesome/svgs/solid/question.svg',
@@ -11,5 +13,11 @@ return [
         'prefix' => 'svg-inline--fa',
         'registerAssets' => true,
         'style' => 'solid',
+    ],
+
+    'yiirocks/svg-inline' => [
+        'iconSets' => [
+            'fai' => SvgInlineFontAwesomeInterface::class,
+        ],
     ],
 ];
