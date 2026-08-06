@@ -44,8 +44,7 @@
         "yiisoft/code-style": "^1.1",
         "yiisoft/config": "^1.6",
         "yiisoft/di": "*",
-        "yiisoft/files": "^2.0",
-        "yiisoft/yii-http": "^1.0"
+        "yiisoft/files": "^2.0"
     },
     "autoload": {
         "psr-4": {
